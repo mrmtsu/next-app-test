@@ -7,6 +7,8 @@ import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
   const handleClick = useCallback(() => {
     console.log(count);
@@ -22,6 +24,18 @@ export default function Home() {
     };
   }, [count]);
 
+  const handleDisPlay = useCallback(() => {
+    setIsShow((isShow) => !isShow);
+  }, []);
+
+  const handleCheck = useCallback((e) => {
+    if (e.target.value.length > 5) {
+      alert("5文字以内にしてください");
+      return;
+    }
+    setText(e.target.value.trim());
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -30,8 +44,11 @@ export default function Home() {
 
       <Header />
 
-      <h1>{count}</h1>
+      {isShow ? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
+      <button onClick={handleDisPlay}>{isShow ? "非表示" : "表示"}</button>
+      <input type="text" value={text} onChange={handleCheck} />
+
       <Main page="index" />
 
       <Footer />
