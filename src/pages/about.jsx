@@ -1,17 +1,19 @@
 import Head from "next/head";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Main } from "../components/Main";
 import styles from "../styles/Home.module.css";
 
-export default function About() {
-  const { count, isShow, handleClick, handleDisPlay } = useCounter();
-  const { text, array, handleAdd, handleCheck } = useInputArray();
-  useBgLightBlue();
-
+export default function About({
+  count,
+  isShow,
+  handleClick,
+  handleDisPlay,
+  text,
+  array,
+  handleChange,
+  handleAdd,
+}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -24,7 +26,7 @@ export default function About() {
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisPlay}>{isShow ? "非表示" : "表示"}</button>
 
-      <input type="text" value={text} onChange={handleCheck} />
+      <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleAdd}>追加</button>
       <ol>
         {array.map((item) => {
