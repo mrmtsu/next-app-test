@@ -33,7 +33,7 @@ export const Main = (props) => {
     setItems((prevItems) => {
       return prevItems.slice(0, prevItems.length - 1);
     });
-  });
+  }, []);
 
   return (
     <main className={classes.main}>
