@@ -4,6 +4,8 @@ import classes from "src/components/Header/Header.module.css";
 const NAV_ITEMS = [
   { href: "/", label: "Index" },
   { href: "/posts", label: "Posts" },
+  { href: "/users", label: "Users" },
+  { href: "/comments", label: "Comments" },
 ];
 
 export const Header = () => {
@@ -16,12 +18,6 @@ export const Header = () => {
           </Link>
         );
       })}
-      {/* <Link href="/">
-        <a className={classes.anchor}>Index</a>
-      </Link>
-      <Link href="/about">
-        <a className={classes.anchor}>About</a>
-      </Link> */}
     </header>
   );
 };
