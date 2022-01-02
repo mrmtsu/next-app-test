@@ -1,14 +1,13 @@
 import { Header } from "src/components/Header";
 import { Post } from "src/components/Post";
-import styles from "src/styles/Home.module.css";
 
-const PostId = () => {
+const PostsId = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Header />
       <Post />
     </div>
   );
 };
 
-export default PostId;
+export default PostsId;
